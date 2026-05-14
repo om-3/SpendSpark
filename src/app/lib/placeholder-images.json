@@ -1,0 +1,23 @@
+
+{
+  "placeholderImages": [
+    {
+      "id": "hero-dashboard",
+      "description": "Financial analytics dashboard overview",
+      "imageUrl": "https://picsum.photos/seed/spendspark-dash/1200/800",
+      "imageHint": "financial dashboard"
+    },
+    {
+      "id": "hero-landing",
+      "description": "Clean financial interface with charts and stats",
+      "imageUrl": "https://picsum.photos/seed/spendspark-hero/1200/800",
+      "imageHint": "finance app"
+    },
+    {
+      "id": "user-avatar",
+      "description": "User profile avatar",
+      "imageUrl": "https://picsum.photos/seed/user123/100/100",
+      "imageHint": "person portrait"
+    }
+  ]
+}

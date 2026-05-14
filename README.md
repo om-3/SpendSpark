@@ -2,168 +2,212 @@
 
 # 💸 SpendSpark
 
-### Smart Student Expense & Subscription Tracker
+### Smart Expense & Subscription Tracker Desktop App  
 **Track. Analyze. Save Smarter.**
 
-[![Java](https://img.shields.io/badge/Java-JavaFX-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://openjfx.io/)
-[![MySQL](https://img.shields.io/badge/MySQL-Database-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
-[![Python](https://img.shields.io/badge/Python-Analytics-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![Electron](https://img.shields.io/badge/Electron-Desktop_App-47848F?style=for-the-badge&logo=electron&logoColor=white)](https://www.electronjs.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-Backend-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-Styling-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-
-![App Demo](assets/demo.gif)
 
 </div>
 
 ---
 
-## 📌 About
+# 📌 About
 
-**SpendSpark** is a desktop financial tracker built for students who want control over their money — without the complexity.
+**SpendSpark** is a modern desktop expense and subscription tracking application designed to help students and individuals manage their finances more effectively.
 
-Log expenses, catch recurring subscription leaks, get renewal reminders, and visualize your spending — all in one dark-mode app powered by Java, MySQL, and Python analytics.
+The application allows users to:
 
-> Built with **MVC architecture** for clean separation of logic, UI, and data.
+- Track daily expenses
+- Manage recurring subscriptions
+- Analyze spending habits
+- View financial insights
+- Monitor monthly expenses visually
+
+SpendSpark is built using **Next.js + Electron**, allowing it to run as a real Windows desktop application.
 
 ---
 
-## ✨ Features
+# ✨ Features
 
 | Feature | Description |
 |---|---|
-| 📊 Expense Tracking | Log daily expenses by category, amount, and date |
-| 🔁 Subscription Manager | Track monthly/yearly subscriptions with billing cycles |
-| ⚠️ Renewal Alerts | Visual alert when a subscription renews within 3 days |
-| 📈 Spending Analytics | Python-generated pie charts & monthly trend graphs |
-| 👥 Multi-User Support | Separate profiles per user |
-| 💾 MySQL Integration | Persistent local database storage |
-| 🐍 Auto Reports | Monthly spending summary printed to console |
+| 📊 Expense Tracking | Add and manage daily expenses |
+| 🔁 Subscription Tracking | Monitor monthly and yearly subscriptions |
+| 📈 Analytics Dashboard | Interactive spending charts and reports |
+| 🌙 Modern UI | Dark-mode responsive interface |
+| 🖥 Desktop Application | Runs as Windows EXE application |
+| ⚡ Fast Performance | Powered by Next.js + React |
+| 🔥 Firebase Integration | Cloud-based backend support |
+| 📱 Responsive Layout | Optimized UI design |
 
 ---
 
-## 🛠 Tech Stack
+# 🛠 Tech Stack
 
-```
-Frontend   →  JavaFX (Dark Mode UI, MVC Controllers)
-Backend    →  Java (Business logic, renewal calculations)
-Database   →  MySQL (Users, Expenses, Subscriptions)
-Analytics  →  Python + Plotly (Charts exported as HTML/PNG)
-```
-
----
-
-## 🗄 Database Schema
-
-<details>
-<summary><strong>Click to expand schema</strong></summary>
-
-### `Users`
-| Column | Type |
-|--------|------|
-| id | INT (PK, AUTO_INCREMENT) |
-| name | VARCHAR(100) |
-| email | VARCHAR(100) UNIQUE |
-
-### `Expenses`
-| Column | Type |
-|--------|------|
-| id | INT (PK, AUTO_INCREMENT) |
-| user_id | INT (FK → Users) |
-| category | VARCHAR(50) |
-| amount | DECIMAL(10,2) |
-| date | DATE |
-
-### `Subscriptions`
-| Column | Type |
-|--------|------|
-| id | INT (PK, AUTO_INCREMENT) |
-| user_id | INT (FK → Users) |
-| name | VARCHAR(100) |
-| cost | DECIMAL(10,2) |
-| billing_cycle | ENUM('monthly','yearly') |
-| next_renewal_date | DATE |
-
-</details>
+| Technology | Purpose |
+|---|---|
+| Next.js 15 | Frontend framework |
+| React 19 | UI library |
+| Electron | Desktop application wrapper |
+| TypeScript | Type safety |
+| Tailwind CSS | Styling |
+| shadcn/ui | UI components |
+| Firebase | Backend/database |
+| Recharts | Charts & analytics |
 
 ---
 
-## ⚙️ Installation
-
-### Prerequisites
-- Java 17+ with JavaFX SDK
-- MySQL 8.0+
-- Python 3.8+ with `plotly` and `mysql-connector-python`
-
-### Steps
+# 📁 Project Structure
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/om-3/SpendSpark.git
-cd SpendSpark
-
-# 2. Setup MySQL database
-mysql -u root -p < schema/schema.sql
-
-# 3. Configure DB credentials
-# Edit src/config/DBConfig.java with your MySQL credentials
-
-# 4. Open in IntelliJ IDEA (recommended) or VS Code
-# Add JavaFX SDK to VM options:
-# --module-path /path/to/javafx-sdk/lib --add-modules javafx.controls,javafx.fxml
-
-# 5. Run the JavaFX application
-# Run Main.java
-
-# 6. (Optional) Run Python analytics
-pip install plotly mysql-connector-python
-python analytics/visualize.py
-```
-
----
-
-## 📁 Project Structure
-
-```
 SpendSpark/
+├── electron/              # Electron desktop configuration
 ├── src/
-│   ├── controller/        # JavaFX controllers (MVC)
-│   ├── model/             # Data models (User, Expense, Subscription)
-│   ├── view/              # FXML layout files
-│   ├── config/            # DB connection config
-│   └── Main.java
-├── analytics/
-│   └── visualize.py       # Python chart generator
-├── schema/
-│   └── schema.sql         # MySQL schema
-├── assets/
-│   └── demo.gif
+│   ├── app/               # Next.js app router
+│   ├── components/        # Reusable UI components
+│   ├── hooks/             # Custom React hooks
+│   ├── lib/               # Utility/helper functions
+│   └── ai/                # AI-related modules
+├── public/
+├── package.json
+├── tailwind.config.ts
+├── next.config.ts
 └── README.md
 ```
 
 ---
 
-## 🚀 Roadmap
+# ⚙️ Installation
 
-- [ ] Cloud sync support
-- [ ] Mobile app version (Android)
-- [ ] AI-based spending suggestions
-- [ ] Budget prediction system
-- [ ] CSV/PDF export
+## Prerequisites
+
+Install the following tools:
+
+- Node.js (v18 or later)
+- Git
+- VS Code (recommended)
+
+---
+
+# 🚀 Run Locally
+
+```bash
+# Clone repository
+git clone https://github.com/om-3/SpendSpark.git
+
+# Open project folder
+cd SpendSpark-main
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+---
+
+# 🖥 Run as Desktop App
+
+Electron integration allows SpendSpark to run as a real desktop application.
+
+## Start Electron App
+
+```bash
+npm run dev
+```
+
+This launches:
+
+- Next.js development server
+- Electron desktop window
+
+---
+
+# 📦 Build Windows EXE
+
+Generate installable Windows application:
+
+```bash
+npm run dist
+```
+
+After successful build:
+
+```bash
+dist/
+ └── SpendSpark Setup 0.1.0.exe
+```
+
+---
+
+# 🎨 UI Features
+
+- Smooth dashboard layout
+- Modern sidebar navigation
+- Responsive cards
+- Interactive charts
+- Dark mode support
+- Clean fintech-inspired design
+
+---
+
+# 🚀 Roadmap
+
+- [ ] Offline local database support
+- [ ] SQLite integration
+- [ ] Budget planning system
+- [ ] AI financial suggestions
+- [ ] Export reports as PDF
+- [ ] Mobile version
+- [ ] Cloud sync
+- [ ] Multi-user authentication
+- [ ] Portable EXE build
+- [ ] Custom desktop app icon
+
+---
+
+# ⚠️ Known Limitations
+
+Currently, the Electron app runs using a local Next.js server during development.
+
+Future updates will include:
+
+- Fully standalone offline mode
+- Optimized production Electron build
+- Local file loading support
 
 ---
 
 ## 👨‍💻 Author
 
-**OM**
+**OM YERPUDE**
 
 [![GitHub](https://img.shields.io/badge/GitHub-om--3-181717?style=for-the-badge&logo=github)](https://github.com/om-3)
 [![Instagram](https://img.shields.io/badge/Instagram-@_om__3.y-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/_om_3.y?igsh=MTA1aWYyYzRpczJueA==)
+---
+
+# ⭐ Support
+
+If you like this project:
+
+⭐ Star the repository  
+🍴 Fork the project  
+🛠 Contribute improvements
 
 ---
 
 <div align="center">
 
-⭐ **Star this repo if it helped you!** ⭐
-
-*Made with ☕ and late-night debugging sessions*
+Made with ☕, React, Electron, and late-night debugging sessions.
 
 </div>
+
+
+
+
